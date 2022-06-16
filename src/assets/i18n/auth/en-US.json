@@ -1,0 +1,9 @@
+{
+  "auth_login": {
+    "title": "Login",
+    "form_email_field": "Email",
+    "form_password_field": "Password",
+    "forgot_password_link": "Doesn't have an account?",
+    "login_button_text": "Login"
+  }
+}

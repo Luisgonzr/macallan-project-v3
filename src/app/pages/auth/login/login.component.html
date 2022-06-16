@@ -1,0 +1,56 @@
+<!-- Login form-->
+<div class="card my-5" [@flipInX]="flipInX">
+  <div class="card-body p-5 text-center">
+      <div class="h3 font-weight-light mb-3">{{'auth_login.title'| translate}}
+      </div>
+  </div>
+  <hr class="my-0">
+  <div class="card-body p-5">
+      <!-- Login form-->
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- Form Group (email address)-->
+          <div class="form-group">
+              <label class="text-gray-600 small">{{'auth_login.form_email_field'| translate}}
+              </label>
+              <input formControlName="email" type="email" class="form-control form-control-solid">
+              <div *ngFor="let error of errorMessages.emailLoginForm">
+                  <ng-container *ngIf="emailLoginForm.errors!=null">
+                      <ng-container *ngIf="emailLoginForm.errors[error.type]&&(emailLoginForm.touched)">
+                          <small class="error-message">{{error.message}}</small>
+                      </ng-container>
+                      </ng-container>
+          </div>
+  </div>
+  <!-- Form Group (password)-->
+  <div class="form-group">
+      <label class="text-gray-600 small">{{'auth_login.form_password_field'| translate}}
+      </label>
+      <input formControlName="password" type="password" class="form-control form-control-solid">
+      <div *ngFor="let error of errorMessages.passwordLoginForm">
+          <ng-container *ngIf="passwordLoginForm.errors!=null">
+              <ng-container *ngIf="passwordLoginForm.errors[error.type]&&(passwordLoginForm.touched)">
+                  <small class="error-message">{{error.message}}</small>
+              </ng-container>
+              </ng-container>
+  </div>
+</div>
+<!-- Form Group (forgot password link)-->
+<div class="form-group"><a class="small" [routerLink]="['/forgot-password']">{{'auth_login.forgot_password_link'| translate}}
+</a></div>
+<!-- Form Group (login box)-->
+<div class="form-group d-flex align-items-center justify-content-between mb-0">
+  <button type="submit" [disabled]="loginForm.invalid||loginFormDisable" class="btn btn-primary">
+    {{'auth_login.login_button_text'| translate}}
+
+        </button>
+</div>
+</form>
+</div>
+<hr class="my-0">
+<!--<div class="card-body px-5 py-4">
+    <div class="small text-center">
+      {{LoginTextContent.new_account_text}}
+      <a [routerLink]="['/signin']">{{LoginTextContent.new_account_link_text}}</a>
+    </div>
+  </div>-->
+</div>

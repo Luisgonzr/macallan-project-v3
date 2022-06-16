@@ -1,0 +1,12 @@
+{
+  "language-selector": {
+    "choose-language": "Choose language",
+    "language-one": "Spanish",
+    "language-two": "English"
+  },
+  "auth": {
+    "privacy_policy_text": "Privacy policy",
+    "terms_conditions_text": "Terms & conditions",
+    "copyright_text": "Copyrights"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "auth_login": {
+    "title": "Ingresar",
+    "form_email_field": "Correo electrónico",
+    "form_password_field": "Contraseña",
+    "forgot_password_link": "¿Olvidaste tu contraseña?",
+    "login_button_text": "Ingresar"
+  }
+}

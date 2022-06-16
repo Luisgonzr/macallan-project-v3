@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Datos de la tarjeta</h6>
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 mb-3">
+            <form role="form" id="cc-form" class="user" [formGroup]="cardCreateForm" (ngSubmit)="createCard()">
+
+              <div class="form-group"><label>Nombre del tarjetahabiente
+                </label><input name="name" id="name" formControlName="holder_name" type="text"
+                  class="form-control form-control-user" placeholder="Ingresa el nombre del titular de la tarjeta">
+                <div *ngFor="let error of errorMessages.holder_nameCardCreateForm">
+                  <ng-container *ngIf="holder_nameCardCreateForm.errors!=null">
+                    <ng-container
+                      *ngIf="holder_nameCardCreateForm.errors[error.type]&&(holder_nameCardCreateForm.dirty || holder_nameCardCreateForm.touched)">
+                      <small class="error-message">{{error.message}}</small>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="form-group"><label>Número de tarjeta</label><input name="number" id="number"
+                  formControlName="card_number" type="text" class="form-control form-control-user"
+                  placeholder="Ingresa el número de la tarjeta">
+                <div *ngFor="let error of errorMessages.card_numberCardCreateForm">
+                  <ng-container *ngIf="card_numberCardCreateForm.errors!=null">
+                    <ng-container
+                      *ngIf="card_numberCardCreateForm.errors[error.type]&&(card_numberCardCreateForm.dirty || card_numberCardCreateForm.touched)">
+                      <small class="error-message">{{error.message}}</small>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group"><label>Mes exp</label><input name="month-expiry" id="month-expiry"
+                      formControlName="expiration_month" type="text" class="form-control form-control-user"
+                      placeholder="MM">
+                    <div *ngFor="let error of errorMessages.expiration_monthCardCreateForm">
+                      <ng-container *ngIf="expiration_monthCardCreateForm.errors!=null">
+                        <ng-container
+                          *ngIf="expiration_monthCardCreateForm.errors[error.type]&&(expiration_monthCardCreateForm.dirty || expiration_monthCardCreateForm.touched)">
+                          <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group"><label>Año exp</label><input name="year-expiry" id="year-expiry"
+                      formControlName="expiration_year" type="text" class="form-control form-control-user"
+                      placeholder="AA">
+                    <div *ngFor="let error of errorMessages.expiration_yearCardCreateForm">
+                      <ng-container *ngIf="expiration_yearCardCreateForm.errors!=null">
+                        <ng-container
+                          *ngIf="expiration_yearCardCreateForm.errors[error.type]&&(expiration_yearCardCreateForm.dirty || expiration_yearCardCreateForm.touched)">
+                          <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group"><label>CVV</label><input name="cvc" id="cvc" formControlName="cvv2"
+                      type="text" class="form-control form-control-user" placeholder="CVV">
+                    <div *ngFor="let error of errorMessages.cvv2CardCreateForm">
+                      <ng-container *ngIf="cvv2CardCreateForm.errors!=null">
+                        <ng-container
+                          *ngIf="cvv2CardCreateForm.errors[error.type]&&(cvv2CardCreateForm.dirty || cvv2CardCreateForm.touched)">
+                          <small class="error-message">{{error.message}}</small>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input formControlName="create_subscription" type="checkbox" class="custom-control-input" id="customCheck">
+                    <label class="custom-control-label" for="customCheck">Domiciliar pago</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" [disabled]="cardCreateForm.invalid||cardCreateFormDisable"
+                class="btn btn-primary btn btn-primary btn-user btn-block">Finalizar</button>
+            </form>
+            <br>
+            <p style="text-align: center;"><small>Al continuar estoy aceptando los <a href="https://www.openpay.mx/docs/terminos-servicio.html" target="_blank">términos y condiciones</a> del servicio.</small></p>
+            <p style="text-align: center;"><small><i style="color: #0DAB01;" class="fas fa-lock"></i> Tus pagos se realizan de forma segura con encriptación de 256 bits.</small></p>
+          </div>
+          <div class="col-6">
+            <p class="text-center"><b>Total a pagar: </b> {{pendingAmount|currency}} mxn</p>
+            <div class="card-wrapper">
+
+            </div>
+            <div>
+              <br>
+              <p style="text-align: center; margin-bottom: 0; margin-top: 1rem;"><small>Powered by</small></p>
+              <img class="img-center" height="50%" width="50%"
+                src="https://res.cloudinary.com/ddk36bupk/image/upload/v1642878507/default/macallan-project/openpay-logo.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <p> <b>Nota importante:</b></p>
+      <div class="container">
+        <ul>
+          <li>Nosotros no guardamos los datos completos de tu tarjeta de crédito.
+          </li>
+          <li>Todos los pagos son procesados por medio de OPENPAY SA de CV (Openpay), empresa perteneciente a BBVA
+            Bancomer.</li>
+          <li>Openpay es un agregador autorizado, supervisado y regulado por la Comisión Nacional Bancaria y de Valores
+            (CNBV) y Banco de México (BANXICO) cumpliendo con todos los procedimientos necesarios para validar de
+            conformidad con PCI DSS en relación a las políticas, procedimientos y sistemas técnicos que almacenan,
+            procesan y/o transmiten datos de tarjetahabientes.</li>
+          <li>Para mayor información sobre Openpay visita su sitio web <a href="https://www.openpay.mx/"
+              target="_blank">https://www.openpay.mx/</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
