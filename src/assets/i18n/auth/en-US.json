@@ -5,5 +5,12 @@
     "form_password_field": "Password",
     "forgot_password_link": "Doesn't have an account?",
     "login_button_text": "Login"
+  },
+  "auth_forgot_password": {
+    "title": "Password recovery",
+    "general_text": "Enter your email address below and we will send you a link to reset your password",
+    "form_email_field": "Email",
+    "forgot_button_text": "Reset password",
+    "remember_password_field": "Remember password?"
   }
 }

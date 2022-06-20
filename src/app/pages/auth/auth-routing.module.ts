@@ -13,11 +13,6 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: "signin",
-    canActivate: [NoAuthGuard],
-    component: SigninComponent
-  },
-  {
     path: "forgot-password",
     canActivate: [NoAuthGuard],
     component: ForgotPasswordComponent

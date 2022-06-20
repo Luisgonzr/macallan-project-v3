@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppConstants } from 'src/app/config/constants';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  copyright: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+    this.copyright = AppConstants.SOFTWARE_COPYRIGHT;
   }
 
 }

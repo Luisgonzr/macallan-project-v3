@@ -44,12 +44,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loadLoginForm();
   }
 
-  ngOnDestroy(): void {
-    //this.i18Service.localeEvent.unsubscribe();
-  }
-
   useTranslate(){
     this.translate.use(this.i18Service.getLanguage());
+  }
+
+  ngOnDestroy(): void {
+    //this.i18Service.localeEvent.unsubscribe();
   }
 
   getToastMessage(type: number){

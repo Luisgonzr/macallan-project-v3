@@ -4,9 +4,53 @@
     "language-one": "Español",
     "language-two": "Inglés"
   },
-  "auth": {
+  "app_sidevar": {
+    "first_section_title": "Módulos",
+    "second_section_title": "Configuración",
+    "logged_in_as_text": "Autenticado como:",
+    "second_section_first_option_text": "Planes para suscripciones",
+    "second_section_second_option_text": "Usuarios y roles",
+    "first_section_first_option": "Ventas",
+    "first_section_first_option_1": "Clientes",
+    "first_section_first_option_2": "Facturas",
+    "first_section_first_option_3": "Cobranza",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": ""
+  },
+  "app_navbar": {
+    "dropdown": "Prueba de listado",
+    "account_text": "Cuenta",
+    "logout_text": "Salir",
+    "app_title_text": "APP NAME",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": "",
+    "12": "",
+    "13": "",
+    "14": "",
+    "15": "",
+    "16": ""
+  },
+  "app_footer": {
+    "copyright_text": "Derechos de autor © ",
     "privacy_policy_text": "Políticas de privacidad",
-    "terms_conditions_text": "Términos y condiciones",
-    "copyright_text": "Derechos"
+    "terms_and_conditions_text": "Términos & condiciones"
   }
 }
