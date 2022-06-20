@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { SessionService } from '../auth/session.service';
@@ -37,7 +37,7 @@ export class ApiService {
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
-      }), catchError(err => throwError(err.error)));
+      }), catchError(this.errorHandler));
   }
 
   /**
@@ -55,7 +55,7 @@ export class ApiService {
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
-      }), catchError(err => throwError(err.error)));
+      }), catchError(this.errorHandler));
   }
 
   /**
@@ -69,7 +69,7 @@ export class ApiService {
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
-      }), catchError(err => throwError(err.error)));
+      }), catchError(this.errorHandler));
   }
 
   /**
@@ -84,7 +84,7 @@ export class ApiService {
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
-      }), catchError(err => throwError(err.error)));
+      }), catchError(this.errorHandler));
   }
 
   /**
@@ -98,7 +98,16 @@ export class ApiService {
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
-      }), catchError(err => throwError(err.error)));
+      }), catchError(this.errorHandler));
+  }
+
+  /**
+   * Catch the error and get the data from error property
+   * @param error HttpErrorResponse object
+   * @returns JSON object with the error property value
+   */
+   private errorHandler(error: HttpErrorResponse) {
+    return throwError(() => new Error(error.error))
   }
 
 }
