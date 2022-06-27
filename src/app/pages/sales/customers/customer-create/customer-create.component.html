@@ -1,1 +1,58 @@
 <p>customer-create works!</p>
+
+
+<form [formGroup]="customerCreateForm" (ngSubmit)="createCustomer()">
+  <div class="form-group"><label>Nombre</label><input formControlName="name" type="text" class="form-control">
+    <div *ngFor="let error of errorMessages.nameCustomerCreateForm">
+      <ng-container *ngIf="nameCustomerCreateForm!.errors!=null">
+        <ng-container
+          *ngIf="nameCustomerCreateForm!.errors[error.type]&&(nameCustomerCreateForm!.dirty || nameCustomerCreateForm!.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>Correo electrónico</label><input formControlName="email" type="email"
+      class="form-control">
+    <div *ngFor="let error of errorMessages.emailCustomerCreateForm">
+      <ng-container *ngIf="emailCustomerCreateForm!.errors!=null">
+        <ng-container
+          *ngIf="emailCustomerCreateForm!.errors[error.type]&&(emailCustomerCreateForm!.dirty || emailCustomerCreateForm!.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>Teléfono</label><input formControlName="phone" type="text" class="form-control">
+    <div *ngFor="let error of errorMessages.phoneCustomerCreateForm">
+      <ng-container *ngIf="phoneCustomerCreateForm!.errors!=null">
+        <ng-container
+          *ngIf="phoneCustomerCreateForm!.errors[error.type]&&(phoneCustomerCreateForm!.dirty || phoneCustomerCreateForm!.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>Ciudad</label><input formControlName="city" type="text" class="form-control">
+    <div *ngFor="let error of errorMessages.cityCustomerCreateForm">
+      <ng-container *ngIf="cityCustomerCreateForm!.errors!=null">
+        <ng-container
+          *ngIf="cityCustomerCreateForm!.errors[error.type]&&(cityCustomerCreateForm!.dirty || cityCustomerCreateForm!.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>Estado</label><select class="form-control" (change)="change($event)"
+      id="Attribute name_region_cat_id" formControlName="region_cat_id">
+      <option value="" disabled="" selected="">region_cat_id</option>
+      <option *ngFor="let item of regionCatalog" value="{{item.id}}">{{item.name}}</option>
+    </select></div>
+  <div class="form-group"><label>País</label><select class="form-control" (change)="change($event)" id="_country_cat_id"
+      formControlName="country_cat_id">
+      <option value="" disabled="" selected="">country_cat_id</option>
+      <option *ngFor="let item of countryCatalog" value="{{item.id}}">{{item.name}}</option>
+    </select></div>
+  <button type="submit" [disabled]="customerCreateForm.invalid||customerCreateFormDisable"
+    class="btn btn-primary">Guardar</button>
+</form>
