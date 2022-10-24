@@ -1,0 +1,20 @@
+{
+  "plan_tableView": {
+    "title": "Plan",
+    "description": "Listado de planes",
+    "other_text": "",
+    "card_title": "Tabla de planes",
+    "add_button": "Crear plan",
+    "create_form_name": "Nombre",
+    "create_form_description": "Descripción",
+    "create_form_price": "Precio (Con IVA)",
+    "create_form_submit_button": "Crear plan"
+  },
+  "plan_planViewTable": {
+    "column1": "Id",
+    "column2": "Nombre",
+    "column3": "Descripción",
+    "column4": "Precio (Con IVA)",
+    "searcher": "Buscar..."
+  }
+}

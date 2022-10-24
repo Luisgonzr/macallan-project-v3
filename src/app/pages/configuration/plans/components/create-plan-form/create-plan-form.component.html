@@ -1,0 +1,38 @@
+<form [formGroup]="planCreateForm" (ngSubmit)="createPlan()">
+  <div class="form-group"><label>{{'plan_tableView.create_form_name'| translate}}</label><input formControlName="name"
+      type="text" class="form-control">
+    <div *ngFor="let error of errorMessages.namePlanCreateForm">
+      <ng-container *ngIf="namePlanCreateForm.errors!=null">
+        <ng-container
+          *ngIf="namePlanCreateForm.errors[error.type]&&(namePlanCreateForm.dirty || namePlanCreateForm.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>{{'plan_tableView.create_form_description'| translate}}</label><input
+      formControlName="description" type="text" class="form-control">
+    <div *ngFor="let error of errorMessages.descriptionPlanCreateForm">
+      <ng-container *ngIf="descriptionPlanCreateForm.errors!=null">
+        <ng-container
+          *ngIf="descriptionPlanCreateForm.errors[error.type]&&(descriptionPlanCreateForm.dirty || descriptionPlanCreateForm.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="form-group"><label>{{'plan_tableView.create_form_price'| translate}}</label><input
+      formControlName="price" type="number" class="form-control">
+    <div *ngFor="let error of errorMessages.pricePlanCreateForm">
+      <ng-container *ngIf="pricePlanCreateForm.errors!=null">
+        <ng-container
+          *ngIf="pricePlanCreateForm.errors[error.type]&&(pricePlanCreateForm.dirty || pricePlanCreateForm.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <button type="submit" [disabled]="planCreateForm.invalid||planCreateFormDisable"
+    class="btn btn-primary">{{'plan_tableView.create_form_submit_button'| translate}}
+  </button>
+</form>

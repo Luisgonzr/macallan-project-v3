@@ -23,9 +23,13 @@ export class NgPrimeTableHandlerService {
     let semiParams = {
       perpage: perPage,
       page: page,
-      orderby: orderBy,
-      ordertype: orderType
+      orderBy: orderBy,
+      orderType: orderType
     };
+    if(semiParams.orderBy == null) {
+      delete semiParams.orderBy;
+      delete semiParams.orderType;
+    }
     const params = Object.assign(semiParams, filters);
     return params;
   }
@@ -33,7 +37,10 @@ export class NgPrimeTableHandlerService {
   getPageCurrent(event: LazyLoadEvent) {
     let first = event.first ? event.first : 1;
     let rows = event.rows ? event.rows : 1;
-    let page = (first / rows) + 1;
+    let page = Math.round((first / rows) + 1);
+    if(event.rows == undefined) {
+      page = 1;
+    }
     if (Number.isNaN(page)) {
       return 1;
     }
@@ -49,7 +56,7 @@ export class NgPrimeTableHandlerService {
   }
 
   getOrderBy(event: LazyLoadEvent) {
-    if (event.sortField === undefined) {
+    if (event.sortField === undefined ) {
       return null;
     } else {
       return event.sortField;
@@ -71,7 +78,6 @@ export class NgPrimeTableHandlerService {
     if (event.filters === undefined) {
 
     } else {
-      console.log(event.filters);
       let filters = event.filters;
       validFilters.forEach((value) => {
         console.log(value);
@@ -87,7 +93,6 @@ export class NgPrimeTableHandlerService {
         }
       });
     }
-    console.log(params);
     return params;
 
   }

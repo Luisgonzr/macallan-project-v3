@@ -33,7 +33,7 @@ export class ApiService {
       queryParamsString = Object.keys(queryParams).map(key => key + '=' + queryParams[key]).join('&');
     }
     return this.httpClient
-      .get(`${this.url}/${endpoint}?${queryParamsString}`, this.options)
+      .get(`${this.url}${endpoint}?${queryParamsString}`, this.options)
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;
@@ -65,7 +65,7 @@ export class ApiService {
    */
   public create(endpoint: string, object: any): Observable<any> {
     return this.httpClient
-      .post(`${this.url}/${endpoint}`, object)
+      .post(`${this.url}${endpoint}`, object)
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { LanguageService } from './shared/services/language.service';
-import { I18nService } from './shared/services/i18n.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +7,6 @@ import { I18nService } from './shared/services/i18n.service';
 })
 export class AppComponent {
   title = 'macallan-project-v3';
-  constructor(private i18Service:I18nService) {
-    this.i18Service.setLanguage();
-  }
+
 
 }

@@ -19,12 +19,12 @@ import { TranslateService } from '@ngx-translate/core';
     }))])
   ],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
   flipInX: any;
 
-  loginForm: FormGroup;
-  loginFormDisable: boolean;
+  loginForm!: FormGroup;
+  loginFormDisable!: boolean;
 
   constructor(
     private i18Service: I18nService,
@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private auth: AuthService,
     private toastService: ToastService
-  ) {
-    this.useTranslate();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.i18Service.localeEvent.subscribe({
@@ -45,11 +43,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   useTranslate(){
+    console.log('login');
     this.translate.use(this.i18Service.getLanguage());
-  }
-
-  ngOnDestroy(): void {
-    //this.i18Service.localeEvent.unsubscribe();
   }
 
   getToastMessage(type: number){

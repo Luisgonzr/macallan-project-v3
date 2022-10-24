@@ -1,0 +1,50 @@
+<div>
+  <div class="row">
+    <div class="col-lg-4">
+      <form (keydown.enter)="$event.preventDefault()">
+        <div class="form-group">
+          <input type="text" class="form-control" #input placeholder="{{'plan_planViewTable.searcher'| translate}}">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<p-table [value]="data" [lazy]="true" (onLazyLoad)="lazyLoadTable($event)" styleClass="" [paginator]="true"
+  [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [rowsPerPageOptions]="[5,10,20,50,100]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id">{{'plan_planViewTable.column1'| translate}}<p-sortIcon field="id"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name">{{'plan_planViewTable.column2'| translate}}<p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="description">{{'plan_planViewTable.column3'| translate}}<p-sortIcon field="description">
+        </p-sortIcon>
+      </th>
+      <th pSortableColumn="price">{{'plan_planViewTable.column4'| translate}}<p-sortIcon field="price"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dataSingle>
+    <tr>
+      <td>{{dataSingle.id}}</td>
+      <td>{{dataSingle.name}}</td>
+      <td>{{dataSingle.description}}</td>
+      <td>{{dataSingle.price | currency}} mxn</td>
+      <td>
+        <button class="btn btn-teal btn-icon" type="button" (click)="deleteRecord(dataSingle)">
+          <i data-feather="feather"></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-pink btn-icon" type="button" (click)="deleteRecord(dataSingle)">
+          <i data-feather="feather"></i>
+        </button>
+      </td>
+      <td>
+    </tr>
+  </ng-template>
+</p-table>
