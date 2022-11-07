@@ -1,1 +1,98 @@
-<p>create-customer-form works!</p>
+<form [formGroup]="customerCreateForm" (ngSubmit)="createCustomer()">
+  <div class="row">
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_name'| translate}}</label><input
+          formControlName="name" type="text" class="form-control">
+        <div *ngFor="let error of errorMessages.nameCustomerCreateForm">
+          <ng-container *ngIf="nameCustomerCreateForm!.errors!=null">
+            <ng-container
+              *ngIf="nameCustomerCreateForm!.errors[error.type]&&(nameCustomerCreateForm!.dirty || nameCustomerCreateForm!.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_email'| translate}}</label><input
+          formControlName="email" type="email" class="form-control">
+        <div *ngFor="let error of errorMessages.emailCustomerCreateForm">
+          <ng-container *ngIf="emailCustomerCreateForm!.errors!=null">
+            <ng-container
+              *ngIf="emailCustomerCreateForm!.errors[error.type]&&(emailCustomerCreateForm!.dirty || emailCustomerCreateForm!.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_username'| translate}}</label><input
+          formControlName="username" type="text" class="form-control">
+        <div *ngFor="let error of errorMessages.usernameCustomerCreateForm">
+          <ng-container *ngIf="usernameCustomerCreateForm!.errors!=null">
+            <ng-container
+              *ngIf="usernameCustomerCreateForm!.errors[error.type]&&(usernameCustomerCreateForm!.dirty || usernameCustomerCreateForm!.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_phone'| translate}}</label><input
+          formControlName="phone" type="text" class="form-control">
+        <div *ngFor="let error of errorMessages.phoneCustomerCreateForm">
+          <ng-container *ngIf="phoneCustomerCreateForm!.errors!=null">
+            <ng-container
+              *ngIf="phoneCustomerCreateForm!.errors[error.type]&&(phoneCustomerCreateForm!.dirty || phoneCustomerCreateForm!.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_city'| translate}}</label><input
+          formControlName="city" type="text" class="form-control">
+        <div *ngFor="let error of errorMessages.cityCustomerCreateForm">
+          <ng-container *ngIf="cityCustomerCreateForm!.errors!=null">
+            <ng-container
+              *ngIf="cityCustomerCreateForm!.errors[error.type]&&(cityCustomerCreateForm!.dirty || cityCustomerCreateForm!.touched)">
+              <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_regionCatId'| translate}}</label><select
+          class="form-control" (change)="change($event)" id="customerCreateForm_regionCatId"
+          formControlName="regionCatId">
+          <option value="" disabled="" selected="">regionCatId</option>
+          <option *ngFor="let item of regionCatalog" value="{{item.id}}">{{item.name}}</option>
+        </select></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group"><label>{{'customer_tableView.create_form_countryCatId'| translate}}</label><select
+          class="form-control" (change)="change($event)" id="customerData_countryCatId" formControlName="countryCatId">
+          <option value="" disabled="" selected="">countryCatId</option>
+          <option *ngFor="let item of countryCatalog" value="{{item.id}}">{{item.name}}</option>
+        </select></div>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+  <button type="submit" [disabled]="customerCreateForm.invalid||customerCreateFormDisable"
+    class="btn btn-primary">{{'customer_tableView.create_form_submit_button'| translate}}</button>
+</form>

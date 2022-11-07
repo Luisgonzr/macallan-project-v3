@@ -1,0 +1,24 @@
+{
+  "customer_tableView": {
+    "title":"Clientes",
+    "description":"Listado de clientes",
+    "other_text":"",
+    "card_title":"Tabla de clientes",
+    "add_button":"Alta de cliente",
+    "create_form_name": "Nombre del cliente",
+    "create_form_email": "Correo electrónico",
+    "create_form_username": "Nombre del usuario (Será usado para ingresar a su portal)",
+    "create_form_phone": "Teléfono",
+    "create_form_city": "Ciudad",
+    "create_form_regionCatId": "Estado",
+    "create_form_countryCatId": "País",
+    "create_form_submit_button": "Crear cliente"
+  },
+  "plan_planViewTable": {
+    "column1": "",
+    "column2": "",
+    "column3": "",
+    "column4": "",
+    "searcher": "Buscar…"
+  }
+}
