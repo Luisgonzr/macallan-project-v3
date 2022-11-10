@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AppCatalogs } from 'src/app/config/catalogs';
+import { CustomerService } from 'src/app/models/customer/customer.service';
 import { I18nService } from 'src/app/shared/services/i18n.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class CreateCustomerFormComponent implements OnInit {
 
   constructor(
     private readonly i18Service: I18nService,
-    private readonly translate: TranslateService
+    private readonly translate: TranslateService,
+    private readonly customerService: CustomerService
   ) {  }
 
   useTranslate() {
@@ -50,7 +52,7 @@ export class CreateCustomerFormComponent implements OnInit {
     this.customerCreateForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]),
       email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(1), Validators.maxLength(60)]),
-      username: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(60)]),
+      userName: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(60)]),
       phone: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]),
       city: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
       regionCatId: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]),
@@ -61,7 +63,7 @@ export class CreateCustomerFormComponent implements OnInit {
   // Getters for customerCreateForm
   get nameCustomerCreateForm() { return this.customerCreateForm.get('name'); }
   get emailCustomerCreateForm() { return this.customerCreateForm.get('email'); }
-  get usernameCustomerCreateForm() { return this.customerCreateForm.get('username'); }
+  get userNameCustomerCreateForm() { return this.customerCreateForm.get('userName'); }
   get phoneCustomerCreateForm() { return this.customerCreateForm.get('phone'); }
   get cityCustomerCreateForm() { return this.customerCreateForm.get('city'); }
   get regionCatIdCustomerCreateForm() { return this.customerCreateForm.get('regionCatId'); }
@@ -74,25 +76,42 @@ export class CreateCustomerFormComponent implements OnInit {
   public errorMessages = {
     nameCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
     emailCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'email', message: 'Email message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
-    usernameCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
+    userNameCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
     phoneCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
     cityCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
     regionCatIdCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
     countryCatIdCustomerCreateForm: [{ type: 'required', message: 'Required message' }, { type: 'minlength', message: 'Min length message' }, { type: 'maxlength', message: 'Max length message' },],
   };
 
-  createCustomer() {
+  setPlanCreateValues() {
+    this.customerCreateForm.get('name')!.setValue('');
+    this.customerCreateForm.get('email')!.setValue('');
+    this.customerCreateForm.get('userName')!.setValue('');
+    this.customerCreateForm.get('phone')!.setValue('');
+    this.customerCreateForm.get('city')!.setValue('');
+    this.customerCreateForm.get('regionCatId')!.setValue('');
+    this.customerCreateForm.get('countryCatId')!.setValue('');
+  };
+
+  async createCustomer() {
     this.customerCreateFormDisable = true;
     const data = {
-      name: this.customerCreateForm.get('name')!.value,
-      email: this.customerCreateForm.get('email')!.value,
-      username: this.customerCreateForm.get('username')!.value,
-      phone: this.customerCreateForm.get('phone')!.value,
-      city: this.customerCreateForm.get('city')!.value,
-      regionCatId: this.customerCreateForm.get('regionCatId')!.value,
-      countryCatId: this.customerCreateForm.get('countryCatId')!.value,
+      name: this.customerCreateForm.get('name')!.value as string,
+      email: this.customerCreateForm.get('email')!.value as string,
+      userName: this.customerCreateForm.get('userName')!.value as string,
+      phone: this.customerCreateForm.get('phone')!.value as string,
+      city: this.customerCreateForm.get('city')!.value as string,
+      regionCatId: this.customerCreateForm.get('regionCatId')!.value as string,
+      countryCatId: this.customerCreateForm.get('countryCatId')!.value as string,
     };
-    console.log(data);
+    try {
+      await this.customerService.createCustomer(data);
+      this.setPlanCreateValues();
+      this.customerCreateFormDisable = false;
+    } catch (error) {
+      console.log(error);
+      this.customerCreateFormDisable = false;
+    }
   }
 
   change(e: any) {

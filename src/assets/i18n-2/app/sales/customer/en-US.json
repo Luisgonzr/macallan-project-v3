@@ -1,0 +1,24 @@
+{
+  "customer_tableView": {
+    "title": "Customer",
+    "description": "Customer list",
+    "other_text": "",
+    "card_title": "Customer table",
+    "add_button": "Create customer",
+    "create_form_name": "Customer's name",
+    "create_form_email": "Email",
+    "create_form_username": "Username (Will be used for portal login)",
+    "create_form_phone": "Phone",
+    "create_form_city": "City",
+    "create_form_regionCatId": "Region",
+    "create_form_countryCatId": "Country",
+    "create_form_submit_button": "Create customer"
+  },
+  "plan_planViewTable": {
+    "column1": "",
+    "column2": "",
+    "column3": "",
+    "column4": "",
+    "searcher": "Search…"
+  }
+}

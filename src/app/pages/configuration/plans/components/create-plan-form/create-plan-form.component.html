@@ -1,5 +1,5 @@
 <form [formGroup]="planCreateForm" (ngSubmit)="createPlan()">
-  <div class="form-group"><label>{{'plan_tableView.create_form_name'| translate}}</label><input formControlName="name"
+  <div class="form-group"><label>{{'configuration.plan.plan_tableView.create_form_name'| translate}}</label><input formControlName="name"
       type="text" class="form-control">
     <div *ngFor="let error of errorMessages.namePlanCreateForm">
       <ng-container *ngIf="namePlanCreateForm.errors!=null">
@@ -10,7 +10,7 @@
       </ng-container>
     </div>
   </div>
-  <div class="form-group"><label>{{'plan_tableView.create_form_description'| translate}}</label><input
+  <div class="form-group"><label>{{'configuration.plan.plan_tableView.create_form_description'| translate}}</label><input
       formControlName="description" type="text" class="form-control">
     <div *ngFor="let error of errorMessages.descriptionPlanCreateForm">
       <ng-container *ngIf="descriptionPlanCreateForm.errors!=null">
@@ -21,7 +21,7 @@
       </ng-container>
     </div>
   </div>
-  <div class="form-group"><label>{{'plan_tableView.create_form_price'| translate}}</label><input
+  <div class="form-group"><label>{{'configuration.plan.plan_tableView.create_form_price'| translate}}</label><input
       formControlName="price" type="number" class="form-control">
     <div *ngFor="let error of errorMessages.pricePlanCreateForm">
       <ng-container *ngIf="pricePlanCreateForm.errors!=null">
@@ -33,6 +33,6 @@
     </div>
   </div>
   <button type="submit" [disabled]="planCreateForm.invalid||planCreateFormDisable"
-    class="btn btn-primary">{{'plan_tableView.create_form_submit_button'| translate}}
+    class="btn btn-primary">{{'configuration.plan.plan_tableView.create_form_submit_button'| translate}}
   </button>
 </form>

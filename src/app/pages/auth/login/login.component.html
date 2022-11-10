@@ -1,7 +1,7 @@
 <!-- Login form-->
 <div class="card my-5" [@flipInX]="flipInX">
   <div class="card-body p-5 text-center">
-      <div class="h3 font-weight-light mb-3">{{'auth_login.title'| translate}}
+      <div class="h3 font-weight-light mb-3">{{'auth.auth_login.title'| translate}}
       </div>
   </div>
   <hr class="my-0">
@@ -10,7 +10,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="login()">
           <!-- Form Group (email address)-->
           <div class="form-group">
-              <label class="text-gray-600 small">{{'auth_login.form_email_field'| translate}}
+              <label class="text-gray-600 small">{{'auth.auth_login.form_email_field'| translate}}
               </label>
               <input formControlName="email" type="email" class="form-control form-control-solid">
               <div *ngFor="let error of errorMessages.emailLoginForm">
@@ -23,7 +23,7 @@
   </div>
   <!-- Form Group (password)-->
   <div class="form-group">
-      <label class="text-gray-600 small">{{'auth_login.form_password_field'| translate}}
+      <label class="text-gray-600 small">{{'auth.auth_login.form_password_field'| translate}}
       </label>
       <input formControlName="password" type="password" class="form-control form-control-solid">
       <div *ngFor="let error of errorMessages.passwordLoginForm">
@@ -35,12 +35,12 @@
   </div>
 </div>
 <!-- Form Group (forgot password link)-->
-<div class="form-group"><a class="small" [routerLink]="['/forgot-password']">{{'auth_login.forgot_password_link'| translate}}
+<div class="form-group"><a class="small" [routerLink]="['/forgot-password']">{{'auth.auth_login.forgot_password_link'| translate}}
 </a></div>
 <!-- Form Group (login box)-->
 <div class="form-group d-flex align-items-center justify-content-between mb-0">
   <button type="submit" [disabled]="loginForm.invalid||loginFormDisable" class="btn btn-primary">
-    {{'auth_login.login_button_text'| translate}}
+    {{'auth.auth_login.login_button_text'| translate}}
 
         </button>
 </div>

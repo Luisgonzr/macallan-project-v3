@@ -27,6 +27,7 @@ export class PlansTableViewComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.useTranslate();
     this.i18Service.localeEvent.subscribe({
       next: locale => { this.useTranslate(); }
     })

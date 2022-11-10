@@ -1,1 +1,53 @@
-<p>customer-view-table works!</p>
+<div>
+  <div class="row">
+    <div class="col-lg-4">
+      <form (keydown.enter)="$event.preventDefault()">
+        <div class="form-group">
+          <input type="text" class="form-control" #input placeholder="{{'configuration.plan.plan_planViewTable.searcher'| translate}}">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<p-table [value]="data" [lazy]="true" (onLazyLoad)="lazyLoadTable($event)" styleClass="" [paginator]="true"
+  [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [rowsPerPageOptions]="[5,10,20,50,100]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id">{{'sales.customer.customer_customerViewTable.column1'| translate}}<p-sortIcon field="id"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name">{{'sales.customer.customer_customerViewTable.column2'| translate}}<p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="userName">{{'sales.customer.customer_customerViewTable.column3'| translate}}<p-sortIcon field="userName">
+        </p-sortIcon>
+      </th>
+      <th>{{'sales.customer.customer_customerViewTable.column4'| translate}}
+      </th>
+      <th pSortableColumn="email">{{'sales.customer.customer_customerViewTable.column5'| translate}}<p-sortIcon field="email"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dataSingle>
+    <tr>
+      <td>{{dataSingle.id}}</td>
+      <td>{{dataSingle.name}}</td>
+      <td>{{dataSingle.userName}}</td>
+      <td>{{dataSingle.taxProfile.taxId}}</td>
+      <td>{{dataSingle.email}}</td>
+      <td>
+        <button class="btn btn-teal btn-icon" type="button" (click)="deleteRecord(dataSingle)">
+          <i data-feather="feather"></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-pink btn-icon" type="button" (click)="deleteRecord(dataSingle)">
+          <i data-feather="feather"></i>
+        </button>
+      </td>
+      <td>
+    </tr>
+  </ng-template>
+</p-table>

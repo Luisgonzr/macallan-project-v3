@@ -1,0 +1,61 @@
+{
+  "language-selector": {
+    "choose-language": "Choose language",
+    "language-one": "Spanish",
+    "language-two": "English"
+  },
+  "auth": {
+    "privacy_policy_text": "Privacy policy",
+    "terms_conditions_text": "Terms & conditions",
+    "copyright_text": "Copyrights"
+  },
+  "app_sidevar": {
+    "first_section_title": "Modules",
+    "second_section_title": "Configuration",
+    "logged_in_as_text": "Logged in as:",
+    "second_section_first_option_text": "Subscription plans",
+    "second_section_second_option_text": "Users & roles",
+    "first_section_first_option": "Sales",
+    "first_section_first_option_1": "Customers",
+    "first_section_first_option_2": "Invoices",
+    "first_section_first_option_3": "Collection",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": ""
+  },
+  "app_navbar": {
+    "dropdown": "Test dropdown",
+    "account_text": "Account",
+    "logout_text": "Logout",
+    "app_title_text": "APP NAME",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "7": "",
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": "",
+    "12": "",
+    "13": "",
+    "14": "",
+    "15": "",
+    "16": ""
+  },
+  "app_footer": {
+    "copyright_text": "Copyright © ",
+    "privacy_policy_text": "Privacy policy",
+    "terms_and_conditions_text": "Terms & conditions"
+  }
+}

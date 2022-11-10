@@ -1,0 +1,16 @@
+{
+  "auth_login": {
+    "title": "Ingresar",
+    "form_email_field": "Correo electrónico",
+    "form_password_field": "Contraseña",
+    "forgot_password_link": "¿Olvidaste tu contraseña?",
+    "login_button_text": "Ingresar"
+  },
+  "auth_forgot_password": {
+    "title": "Recuperación de contraseña",
+    "general_text": "Ingresa tu correo electrónico y te enviaremos una liga para volver a configurar tu contraseña",
+    "form_email_field": "Correo electrónico",
+    "forgot_button_text": "Recuperar contraseña",
+    "remember_password_field": "¿Recordaste tu contraseña?"
+  }
+}

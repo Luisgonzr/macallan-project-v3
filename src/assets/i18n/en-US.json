@@ -7,7 +7,21 @@
   "auth": {
     "privacy_policy_text": "Privacy policy",
     "terms_conditions_text": "Terms & conditions",
-    "copyright_text": "Copyrights"
+    "copyright_text": "Copyrights",
+    "auth_login": {
+      "title": "Login",
+      "form_email_field": "Email",
+      "form_password_field": "Password",
+      "forgot_password_link": "Doesn't have an account?",
+      "login_button_text": "Login"
+    },
+    "auth_forgot_password": {
+      "title": "Password recovery",
+      "general_text": "Enter your email address below and we will send you a link to reset your password",
+      "form_email_field": "Email",
+      "forgot_button_text": "Reset password",
+      "remember_password_field": "Remember password?"
+    }
   },
   "app_sidevar": {
     "first_section_title": "Modules",
@@ -57,5 +71,54 @@
     "copyright_text": "Copyright © ",
     "privacy_policy_text": "Privacy policy",
     "terms_and_conditions_text": "Terms & conditions"
+  },
+  "configuration": {
+    "plan": {
+      "plan_tableView": {
+        "title": "Plan",
+        "description": "Plan list",
+        "other_text": "",
+        "card_title": "Plan table",
+        "add_button": "Create plan",
+        "create_form_name": "Name",
+        "create_form_description": "Description",
+        "create_form_price": "Price (With VAT)",
+        "create_form_submit_button": "Create plan"
+      },
+      "plan_planViewTable": {
+        "column1": "Id",
+        "column2": "Name",
+        "column3": "Description",
+        "column4": "Price (With VAT)",
+        "searcher": "Search..."
+      }
+    }
+  },
+  "sales": {
+    "customer": {
+      "customer_tableView": {
+        "title": "Customer",
+        "description": "Customer list",
+        "other_text": "",
+        "card_title": "Customer table",
+        "add_button": "Create customer",
+        "create_form_name": "Customer's name",
+        "create_form_email": "Email",
+        "create_form_userName": "Username (Will be used for portal login)",
+        "create_form_phone": "Phone",
+        "create_form_city": "City",
+        "create_form_regionCatId": "Region",
+        "create_form_countryCatId": "Country",
+        "create_form_submit_button": "Create customer"
+      },
+      "customer_customerViewTable": {
+        "column1": "Id",
+        "column2": "Name",
+        "column3": "Username",
+        "column4": "Tax Id",
+        "column5": "Email",
+        "searcher": "Search…"
+      }
+    }
   }
 }

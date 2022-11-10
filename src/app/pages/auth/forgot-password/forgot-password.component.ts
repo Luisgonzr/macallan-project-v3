@@ -30,6 +30,8 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   useTranslate() {
+    console.log('forgot');
+    console.log(this.i18nService.getLanguage());
     this.translate.use(this.i18nService.getLanguage());
   }
 

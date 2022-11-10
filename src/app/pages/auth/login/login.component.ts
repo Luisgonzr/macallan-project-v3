@@ -36,13 +36,14 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.translate.use(this.i18Service.getLanguage());
     this.i18Service.localeEvent.subscribe({
-      next: locale => {this.useTranslate();}
+      next: locale => { this.useTranslate(); }
     })
     this.loadLoginForm();
   }
 
-  useTranslate(){
+  useTranslate() {
     console.log('login');
     this.translate.use(this.i18Service.getLanguage());
   }
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.get('password').value;
     this.auth.login(email, password).subscribe({
       next: (res) => {
-        if (res.status === 200) {
+        if (res.statusCode === 200) {
           console.log('Good login');
           this.toastService.openSuccessToast(this.getToastMessage(1),()=>{},()=>{})
         } else {

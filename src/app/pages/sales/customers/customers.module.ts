@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {SidebarModule} from 'primeng/sidebar';
+import {TableModule} from 'primeng/table';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 import { CustomerTableViewComponent } from './customer-table-view/customer-table-view.component';
@@ -15,7 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 export function CustomerHttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/app/sales/customer/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -31,6 +32,7 @@ export function CustomerHttpLoaderFactory(http: HttpClient) {
     CustomersRoutingModule,
     ReactiveFormsModule,
     SidebarModule,
+    TableModule,
     TranslateModule.forChild({
       defaultLanguage: 'es-MX',
       loader: {

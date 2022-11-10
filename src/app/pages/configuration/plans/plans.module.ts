@@ -17,7 +17,8 @@ import { CreatePlanFormComponent } from './components/create-plan-form/create-pl
 import { PlanViewTableComponent } from './components/plan-view-table/plan-view-table.component';
 
 export function PlanHttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/app/configuration/plan/', '.json');
+  console.log('/assets/i18n/app/configuration/plan/');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 
