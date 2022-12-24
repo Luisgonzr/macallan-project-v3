@@ -4,7 +4,7 @@
     "language-one": "Español",
     "language-two": "Inglés"
   },
-  "auth":{
+  "auth": {
     "privacy_policy_text": "Políticas de privacidad",
     "terms_conditions_text": "Términos y condiciones",
     "copyright_text": "Derechos de autor © ",
@@ -33,6 +33,10 @@
     "first_section_first_option_1": "Clientes",
     "first_section_first_option_2": "Facturas",
     "first_section_first_option_3": "Cobranza",
+    "first_section_second_option": "Servicios",
+    "first_section_second_option_1": "Monitoreo de alarma",
+    "first_section_second_option_2": "Monitoreo de salud de dispositivos",
+    "first_section_second_option_3": "Instalaciones de equipo, mantenimiento y otros",
     "1": "",
     "2": "",
     "3": "",
@@ -73,7 +77,7 @@
     "terms_and_conditions_text": "Términos & condiciones"
   },
   "configuration": {
-    "plan":{
+    "plan": {
       "plan_tableView": {
         "title": "Plan",
         "description": "Listado de planes",
@@ -94,14 +98,14 @@
       }
     }
   },
-  "sales":{
-    "customer":{
+  "sales": {
+    "customer": {
       "customer_tableView": {
-        "title":"Clientes",
-        "description":"Listado de clientes",
-        "other_text":"",
-        "card_title":"Tabla de clientes",
-        "add_button":"Alta de cliente",
+        "title": "Clientes",
+        "description": "Listado de clientes",
+        "other_text": "",
+        "card_title": "Tabla de clientes",
+        "add_button": "Alta de cliente",
         "create_form_name": "Nombre del cliente",
         "create_form_email": "Correo electrónico",
         "create_form_userName": "Nombre del usuario (Será usado para ingresar a su portal)",
