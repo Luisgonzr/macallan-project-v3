@@ -1,0 +1,6 @@
+<nav class="nav nav-borders">
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='profile' }" (click)="onSelectedOptionChange('profile')">Option 1</button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='alarmMonitoring' }" (click)="onSelectedOptionChange('alarmMonitoring')">Option 2</button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='billings' }" (click)="onSelectedOptionChange('billings')">Option 3</button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='invoices' }" (click)="onSelectedOptionChange('invoices')">Option 4</button>
+</nav>

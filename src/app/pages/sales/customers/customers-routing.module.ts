@@ -6,7 +6,8 @@ import { CustomerTableViewComponent } from './customer-table-view/customer-table
 
 const routes: Routes = [
   { path: "customer-table-view", component: CustomerTableViewComponent },
-  { path: "customer-actions", component: CustomerActionsComponent },
+  { path: "customer-actions/:id", component: CustomerActionsComponent },
+  { path: "customer-actions/:id/:selectedOption", component: CustomerActionsComponent },
   { path: "customer-create", component: CustomerCreateComponent },
   { path: "", redirectTo: "customer-table-view", pathMatch: "full" }
 

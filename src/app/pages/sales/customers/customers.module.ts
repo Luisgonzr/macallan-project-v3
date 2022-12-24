@@ -14,6 +14,11 @@ import { CustomerViewTableComponent } from './components/customer-view-table/cus
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { CustomerActionNavbarComponent } from './components/customer-action-navbar/customer-action-navbar.component';
+import { CustomerActionProfileComponent } from './components/customer-action-profile/customer-action-profile.component';
+import { CustomerActionAlarmMonitoringComponent } from './components/customer-action-alarm-monitoring/customer-action-alarm-monitoring.component';
+import { CustomerActionBillingsComponent } from './components/customer-action-billings/customer-action-billings.component';
+import { CustomerActionInvoicesComponent } from './components/customer-action-invoices/customer-action-invoices.component';
 
 export function CustomerHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,7 +30,12 @@ export function CustomerHttpLoaderFactory(http: HttpClient) {
     CustomerActionsComponent,
     CustomerCreateComponent,
     CreateCustomerFormComponent,
-    CustomerViewTableComponent
+    CustomerViewTableComponent,
+    CustomerActionNavbarComponent,
+    CustomerActionProfileComponent,
+    CustomerActionAlarmMonitoringComponent,
+    CustomerActionBillingsComponent,
+    CustomerActionInvoicesComponent
   ],
   imports: [
     CommonModule,

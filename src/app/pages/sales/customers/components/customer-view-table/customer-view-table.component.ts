@@ -4,6 +4,7 @@ import {fromEvent } from 'rxjs';
 import { filter, debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { CustomerService } from 'src/app/models/customer/customer.service';
 import { NgPrimeTableHandlerService } from 'src/app/shared/services/ng-prime-table-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-view-table',
@@ -22,7 +23,8 @@ export class CustomerViewTableComponent implements OnInit, AfterViewInit {
 
   constructor(
     private tableHandlerService: NgPrimeTableHandlerService,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private router: Router
   ) { }
 
 
@@ -81,6 +83,7 @@ export class CustomerViewTableComponent implements OnInit, AfterViewInit {
   editRecord(dataSingle: any) {
     // Edit code here
     console.log(dataSingle);
+    this.router.navigate(['app/sales/customers/customer-actions', dataSingle.id]);
   }
   deleteRecord(dataSingle: any) {
     // Edit code here
