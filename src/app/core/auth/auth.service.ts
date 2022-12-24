@@ -117,6 +117,20 @@ export class AuthService {
     }
   }
 
+
+  /**
+   * Get the UserType value if the JSON Web Token value is set in Local Storage key Token
+   * @returns Name string value or empty string
+   */
+  public getUserType(): string {
+    const decodedToken = this.jwt.getData(this.getToken());
+    if (decodedToken == null) {
+      return '';
+    } else {
+      return decodedToken.userType;
+    }
+  }
+
   /**
    * Validates if the JSON Web Token from Local Storage key Token is set and it has not expired
    * @returns Boolean True or False

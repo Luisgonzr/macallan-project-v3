@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionService } from 'src/app/core/auth/session.service';
@@ -10,6 +10,9 @@ import { I18nService } from '../../shared/services/i18n.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  @Input() userName!: string;
+  @Input() userEmail!: string;
 
   constructor(
     private session: SessionService,

@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar [userEmail]="userEmail" [userName]="userName"></app-navbar>
 <div id="layoutSidenav">
-  <app-sidenav></app-sidenav>
+  <app-sidenav [userName]="userName"></app-sidenav>
   <div id="layoutSidenav_content">
     <main>
       <router-outlet></router-outlet>
