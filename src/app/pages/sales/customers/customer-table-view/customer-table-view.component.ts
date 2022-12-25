@@ -26,7 +26,6 @@ export class CustomerTableViewComponent implements OnInit {
   }
 
   useTranslate() {
-    console.log('customer');
     this.translate.use(this.i18Service.getLanguage());
   }
 

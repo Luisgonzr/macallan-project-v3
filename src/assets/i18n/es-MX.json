@@ -122,6 +122,29 @@
         "column4": "RFC",
         "column5": "Correo electrónico",
         "searcher": "Buscar…"
+      },
+      "customer_customerActionsNavbar": {
+        "option1": "General",
+        "option2": "Monitoreo de alarma",
+        "option3": "Cobranza",
+        "option4": "Facturas"
+      },
+      "customer_customerActions": {
+        "title_option1": "General",
+        "title_option2": "Monitoreo de alarma",
+        "title_option3": "Cobranza",
+        "title_option4": "Facturas"
+      },
+      "customer_customerAddressUpdateForm": {
+        "addressStreet": "Calle / Avenida",
+        "addressExternalNumber": "Número externo",
+        "addressInternalNumber": "Número interno",
+        "neightborhood": "Colonia",
+        "zipCode": "Código postal",
+        "regionCatId": "Estado",
+        "city": "Ciudad",
+        "regionCatDefaultValueSelect": "Selecciona estado",
+        "form_button": "Actualizar dirección"
       }
     }
   }

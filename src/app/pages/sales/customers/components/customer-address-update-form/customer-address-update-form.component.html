@@ -1,0 +1,118 @@
+<form [formGroup]="customerAddressUpdateForm" (submit)="submitCustomerAddressUpdateForm()">
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="addressStreet">{{'sales.customer.customer_customerAddressUpdateForm.addressStreet' |
+        translate}}</label>
+      <input type="text" id="addressStreet" name="addressStreet" formControlName="addressStreet" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="addressStreetCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="addressStreetCustomerAddressUpdateForm!.errors[error.type]&&(addressStreetCustomerAddressUpdateForm!.dirty||addressStreetCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+    <div class="col-md-3">
+      <label for="addressExternalNumber">{{'sales.customer.customer_customerAddressUpdateForm.addressExternalNumber' |
+        translate}}</label>
+      <input type="text" id="addressExternalNumber" name="addressExternalNumber" formControlName="addressExternalNumber"
+        class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="addressExternalNumberCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="addressExternalNumberCustomerAddressUpdateForm!.errors[error.type]&&(addressExternalNumberCustomerAddressUpdateForm!.dirty||addressExternalNumberCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+
+    <div class="col-md-3">
+      <label for="addressInternalNumber">{{'sales.customer.customer_customerAddressUpdateForm.addressInternalNumber' |
+        translate}}</label>
+      <input type="text" id="addressInternalNumber" name="addressInternalNumber" formControlName="addressInternalNumber"
+        class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="addressInternalNumberCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="addressInternalNumberCustomerAddressUpdateForm!.errors[error.type]&&(addressInternalNumberCustomerAddressUpdateForm!.dirty||addressInternalNumberCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+  </div>
+
+  <div class="row form-group">
+
+    <div class="col-md-6">
+      <label for="neightborhood">{{'sales.customer.customer_customerAddressUpdateForm.neightborhood' |
+        translate}}</label>
+      <input type="text" id="neightborhood" name="neightborhood" formControlName="neightborhood" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="neightborhoodCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="neightborhoodCustomerAddressUpdateForm!.errors[error.type]&&(neightborhoodCustomerAddressUpdateForm!.dirty||neightborhoodCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+    <div class="col-md-6">
+      <label for="zipCode">{{'sales.customer.customer_customerAddressUpdateForm.zipCode' | translate}}</label>
+      <input type="text" id="zipCode" name="zipCode" formControlName="zipCode" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="zipCodeCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="zipCodeCustomerAddressUpdateForm!.errors[error.type]&&(zipCodeCustomerAddressUpdateForm!.dirty||zipCodeCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+
+  </div>
+
+  <div class="row form-group">
+
+    <div class="col-md-6">
+      <label>{{'sales.customer.customer_customerAddressUpdateForm.regionCatId' | translate}}</label><select
+        class="form-control" (change)="change($event)" id="regionCatId" formControlName="regionCatId">
+        <option value="xxxx" disabled="xxxx" selected="xxxx">
+          {{'sales.customer.customer_customerAddressUpdateForm.regionCatDefaultValueSelect' | translate}}</option>
+        <option *ngFor="let item of regionCatalog" value="{{item.id}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="city">{{'sales.customer.customer_customerAddressUpdateForm.city' | translate}}</label>
+      <input type="text" id="city" name="city" formControlName="city" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerAddressUpdateForm">
+        <ng-container *ngIf="cityCustomerAddressUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="cityCustomerAddressUpdateForm!.errors[error.type]&&(cityCustomerAddressUpdateForm!.dirty||cityCustomerAddressUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+
+
+  </div>
+
+  <br>
+  <button [disabled]="customerAddressUpdateForm.invalid"
+    class="btn btn-primary">{{'sales.customer.customer_customerAddressUpdateForm.form_button' | translate}}</button>
+</form>

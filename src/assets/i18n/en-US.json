@@ -122,6 +122,29 @@
         "column4": "Tax Id",
         "column5": "Email",
         "searcher": "Search…"
+      },
+      "customer_customerActionsNavbar": {
+        "option1": "General",
+        "option2": "Alarm monitoring",
+        "option3": "Billings",
+        "option4": "Invoices"
+      },
+      "customer_customerActions": {
+        "title_option1": "General",
+        "title_option2": "Alarm monitoring",
+        "title_option3": "Billings",
+        "title_option4": "Invoices"
+      },
+      "customer_customerAddressUpdateForm": {
+        "addressStreet": "Street",
+        "addressExternalNumber": "External number",
+        "addressInternalNumber": "Internal number",
+        "neightborhood": "Neightborhood",
+        "zipCode": "Zip code",
+        "regionCatId": "Region",
+        "city": "City",
+        "regionCatDefaultValueSelect": "Select region",
+        "form_button": "Update address"
       }
     }
   }

@@ -1,6 +1,10 @@
 <nav class="nav nav-borders">
-  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='profile' }" (click)="onSelectedOptionChange('profile')">Option 1</button>
-  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='alarmMonitoring' }" (click)="onSelectedOptionChange('alarmMonitoring')">Option 2</button>
-  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='billings' }" (click)="onSelectedOptionChange('billings')">Option 3</button>
-  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='invoices' }" (click)="onSelectedOptionChange('invoices')">Option 4</button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='profile' }" (click)="onSelectedOptionChange('profile')">{{'sales.customer.customer_customerActionsNavbar.option1'| translate}}
+  </button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='alarmMonitoring' }" (click)="onSelectedOptionChange('alarmMonitoring')">{{'sales.customer.customer_customerActionsNavbar.option2'| translate}}
+  </button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='billings' }" (click)="onSelectedOptionChange('billings')">{{'sales.customer.customer_customerActionsNavbar.option3'| translate}}
+  </button>
+  <button class="nav-link" [ngClass]="{ 'active ms-0' : selectedOption==='invoices' }" (click)="onSelectedOptionChange('invoices')">{{'sales.customer.customer_customerActionsNavbar.option4'| translate}}
+  </button>
 </nav>

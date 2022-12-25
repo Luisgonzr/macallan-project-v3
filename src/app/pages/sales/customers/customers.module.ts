@@ -19,6 +19,9 @@ import { CustomerActionProfileComponent } from './components/customer-action-pro
 import { CustomerActionAlarmMonitoringComponent } from './components/customer-action-alarm-monitoring/customer-action-alarm-monitoring.component';
 import { CustomerActionBillingsComponent } from './components/customer-action-billings/customer-action-billings.component';
 import { CustomerActionInvoicesComponent } from './components/customer-action-invoices/customer-action-invoices.component';
+import { CustomerAddressUpdateFormComponent } from './components/customer-address-update-form/customer-address-update-form.component';
+import { CustomerGeneralUpdateFormComponent } from './components/customer-general-update-form/customer-general-update-form.component';
+import { CustomerTaxInfoUpdateFormComponent } from './components/customer-tax-info-update-form/customer-tax-info-update-form.component';
 
 export function CustomerHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +38,10 @@ export function CustomerHttpLoaderFactory(http: HttpClient) {
     CustomerActionProfileComponent,
     CustomerActionAlarmMonitoringComponent,
     CustomerActionBillingsComponent,
-    CustomerActionInvoicesComponent
+    CustomerActionInvoicesComponent,
+    CustomerAddressUpdateFormComponent,
+    CustomerGeneralUpdateFormComponent,
+    CustomerTaxInfoUpdateFormComponent
   ],
   imports: [
     CommonModule,
