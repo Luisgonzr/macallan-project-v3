@@ -51,7 +51,7 @@ export class ApiService {
       // .set('Authorization', `Bearer ${this.session.getItem('token')}`)
     };
     return this.httpClient
-      .get(`${this.url}/${endpoint}/${id}`, this.options)
+      .get(`${this.url}${endpoint}/${id}`, this.options)
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;

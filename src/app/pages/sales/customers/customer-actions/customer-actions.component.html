@@ -33,7 +33,7 @@
       <hr class="mt-0 mb-4">
       <!-- CONTENT -->
       <div [ngSwitch]="selectedOption">
-        <app-customer-action-profile *ngSwitchCase="'profile'"></app-customer-action-profile>
+        <app-customer-action-profile [customer]="customer" *ngSwitchCase="'profile'"></app-customer-action-profile>
         <app-customer-action-alarm-monitoring *ngSwitchCase="'alarmMonitoring'"></app-customer-action-alarm-monitoring>
         <app-customer-action-billings *ngSwitchCase="'billings'"></app-customer-action-billings>
         <app-customer-action-invoices *ngSwitchCase="'invoices'"></app-customer-action-invoices>

@@ -1,1 +1,52 @@
-<p>customer-general-update-form works!</p>
+<form [formGroup]="customerGeneralUpdateForm" (submit)="submitCustomerGeneralUpdateForm()">
+  <div class="row form-group">
+    <div class="col-md-6"><label for="name">{{'sales.customer.customer_customerGeneralUpdateForm.name' |
+        translate}}</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerGeneralUpdateForm">
+        <ng-container *ngIf="nameCustomerGeneralUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="nameCustomerGeneralUpdateForm!.errors[error.type]&&(nameCustomerGeneralUpdateForm!.dirty||nameCustomerGeneralUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+    <div class="col-md-6"><label for="userName">{{'sales.customer.customer_customerGeneralUpdateForm.userName' |
+        translate}}</label>
+      <input type="text" id="userName" name="userName" formControlName="userName" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.customerGeneralUpdateForm">
+        <ng-container *ngIf="userNameCustomerGeneralUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="userNameCustomerGeneralUpdateForm!.errors[error.type]&&(userNameCustomerGeneralUpdateForm!.dirty||userNameCustomerGeneralUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-6"><label for="phone">{{'sales.customer.customer_customerGeneralUpdateForm.phone' |
+      translate}}</label>
+    <input type="text" id="phone" name="phone" formControlName="phone" class="form-control">
+    <!-- ### Start: Displaying errors ###-->
+    <div *ngFor="let error of errorMessages.customerGeneralUpdateForm">
+      <ng-container *ngIf="phoneCustomerGeneralUpdateForm!.errors!=null">
+        <ng-container
+          *ngIf="phoneCustomerGeneralUpdateForm!.errors[error.type]&&(phoneCustomerGeneralUpdateForm!.dirty||phoneCustomerGeneralUpdateForm!.touched)">
+          <p class="text-red-500">{{error.message}}</p>
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- ### End: Displaying errors ###-->
+  </div>
+  </div>
+
+  <button [disabled]="customerGeneralUpdateForm.invalid"
+    class="btn btn-primary">{{'sales.customer.customer_customerGeneralUpdateForm.form_button' | translate}}</button>
+</form>

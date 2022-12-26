@@ -145,6 +145,24 @@
         "city": "Ciudad",
         "regionCatDefaultValueSelect": "Selecciona estado",
         "form_button": "Actualizar dirección"
+      },
+      "customer_customerGeneralUpdateForm": {
+        "name": "Nombre del cliente",
+        "userName": "Nombre del usuario",
+        "phone": "Teléfono",
+        "form_button": "Actualizar información general"
+      },
+      "customer_taxUpdateForm": {
+        "taxId": "RFC",
+        "taxLegalName": "Razón social / Nombre legal",
+        "taxSystemCatId": "Régimen fiscal",
+        "taxZipCode": "Código postal fiscal",
+        "form_button": "Actualizar perfil fiscal"
+      },
+      "customer_customerActionsProfile": {
+        "first_title": "información general",
+        "second_title": "Perfil fiscal",
+        "third_title": "Domicilio / dirección"
       }
     }
   }

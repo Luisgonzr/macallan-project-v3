@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { CommunicationService } from 'src/app/shared/services/communication.service';
 import { I18nService } from 'src/app/shared/services/i18n.service';
+import { AppCatalogs } from '../../../../../config/catalogs';
 
 @Component({
   selector: 'app-customer-address-update-form',
@@ -11,15 +13,18 @@ import { I18nService } from 'src/app/shared/services/i18n.service';
 export class CustomerAddressUpdateFormComponent implements OnInit {
 
   @Input() customerId!: string;
+  @Input() customer!: any;
+  subscription: any;
 
   customerAddressUpdateForm!: FormGroup;
   //Catalogs
-  regionCatalog = [{ id: 1, name: 'something' },];
+  regionCatalog = AppCatalogs.REGION_CATALOGS;
   // Constructor
   constructor(
     private fb: FormBuilder,
     private readonly i18Service: I18nService,
-    private readonly translate: TranslateService
+    private readonly translate: TranslateService,
+    private communicationService: CommunicationService
     ) { }
     useTranslate() {
       this.translate.use(this.i18Service.getLanguage());
@@ -29,7 +34,19 @@ export class CustomerAddressUpdateFormComponent implements OnInit {
     this.i18Service.localeEvent.subscribe({
       next: locale => { this.useTranslate(); }
     })
-    this.initCustomerAddressUpdateForm()
+    this.initCustomerAddressUpdateForm();
+    if(typeof this.customer !== 'undefined'){
+      this.setCustomerAddressUpdateForm();
+    }
+    this.subscription = this.communicationService.changeEmitted$.subscribe(data => {
+      if (data.type === 'getCustomer') {
+        this.customer = data.customer;
+        this.setCustomerAddressUpdateForm();
+      }
+    });
+  }
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
   initCustomerAddressUpdateForm() {
     this.customerAddressUpdateForm = this.fb.group({
@@ -41,6 +58,15 @@ export class CustomerAddressUpdateFormComponent implements OnInit {
       regionCatId: ['', []],
       city: ['', [Validators.minLength(1), Validators.maxLength(60), Validators.pattern(/^[a-zA-Z\s]*$/),]],
     });
+  }
+  setCustomerAddressUpdateForm() {
+    this.customerAddressUpdateForm.get('addressStreet')?.setValue(this.customer.addressStreet);
+    this.customerAddressUpdateForm.get('addressExternalNumber')?.setValue(this.customer.addressExternalNumber);
+    this.customerAddressUpdateForm.get('addressInternalNumber')?.setValue(this.customer.addressInternalNumber);
+    this.customerAddressUpdateForm.get('neightborhood')?.setValue(this.customer.neightborhood);
+    this.customerAddressUpdateForm.get('zipCode')?.setValue(this.customer.zipCode);
+    this.customerAddressUpdateForm.get('regionCatId')?.setValue(this.customer.regionCatId);
+    this.customerAddressUpdateForm.get('city')?.setValue(this.customer.city);
   }
   // Getters
   get addressStreetCustomerAddressUpdateForm() { return this.customerAddressUpdateForm.get('addressStreet'); }

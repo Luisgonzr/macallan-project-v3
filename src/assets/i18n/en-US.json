@@ -145,6 +145,24 @@
         "city": "City",
         "regionCatDefaultValueSelect": "Select region",
         "form_button": "Update address"
+      },
+      "customer_customerGeneralUpdateForm": {
+        "name": "Customer's name",
+        "userName": "Username",
+        "phone": "Phone",
+        "form_button": "Update general info"
+      },
+      "customer_taxUpdateForm": {
+        "taxId": "Tax ID",
+        "taxLegalName": "Legal name",
+        "taxSystemCatId": "Tax system",
+        "taxZipCode": "Tax zip code",
+        "form_button": "Update tax profile"
+      },
+      "customer_customerActionsProfile": {
+        "first_title": "General info",
+        "second_title": "Tax profile",
+        "third_title": "Address"
       }
     }
   }

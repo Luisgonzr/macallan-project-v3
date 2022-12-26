@@ -1,0 +1,67 @@
+<form [formGroup]="taxProfileUpdateForm" (submit)="submitTaxProfileUpdateForm()">
+  <div class="row form-group">
+    <div><label for="taxLegalName">{{'sales.customer.customer_taxUpdateForm.taxLegalName' | translate}}</label>
+      <input type="text" id="taxLegalName" name="taxLegalName" formControlName="taxLegalName" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.taxProfileUpdateForm">
+        <ng-container *ngIf="taxLegalNameTaxProfileUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="taxLegalNameTaxProfileUpdateForm!.errors[error.type]&&(taxLegalNameTaxProfileUpdateForm!.dirty||taxLegalNameTaxProfileUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+  </div>
+  <div class="row form-group">
+
+    <div class="col-md-6">
+      <label for="taxId">{{'sales.customer.customer_taxUpdateForm.taxId' | translate}}</label>
+      <input type="text" id="taxId" name="taxId" formControlName="taxId" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.taxProfileUpdateForm">
+        <ng-container *ngIf="taxIdTaxProfileUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="taxIdTaxProfileUpdateForm!.errors[error.type]&&(taxIdTaxProfileUpdateForm!.dirty||taxIdTaxProfileUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+
+    <div class="col-md-6">
+      <label for="taxZipCode">{{'sales.customer.customer_taxUpdateForm.taxZipCode' | translate}}</label>
+      <input type="text" id="taxZipCode" name="taxZipCode" formControlName="taxZipCode" class="form-control">
+      <!-- ### Start: Displaying errors ###-->
+      <div *ngFor="let error of errorMessages.taxProfileUpdateForm">
+        <ng-container *ngIf="taxZipCodeTaxProfileUpdateForm!.errors!=null">
+          <ng-container
+            *ngIf="taxZipCodeTaxProfileUpdateForm!.errors[error.type]&&(taxZipCodeTaxProfileUpdateForm!.dirty||taxZipCodeTaxProfileUpdateForm!.touched)">
+            <p class="text-red-500">{{error.message}}</p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- ### End: Displaying errors ###-->
+    </div>
+
+
+  </div>
+  <div class="row form-group">
+
+    <div>
+      <label>{{'sales.customer.customer_taxUpdateForm.taxSystemCatId' | translate}}</label><select
+        class="form-control" (change)="change($event)" id="taxSystemCatId" formControlName="taxSystemCatId">
+        <option value="xxxx" disabled="xxxx" selected="xxxx"></option>
+        <option *ngFor="let item of taxSystemCatalog" value="{{item.id}}">{{item.name}}</option>
+      </select>
+    </div>
+
+
+  </div>
+
+
+  <button [disabled]="taxProfileUpdateForm.invalid"
+    class="btn btn-primary">{{'sales.customer.customer_taxUpdateForm.form_button' | translate}}</button>
+</form>
