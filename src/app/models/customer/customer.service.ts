@@ -7,7 +7,7 @@ import { AuthService } from '../../core/auth/auth.service';
 })
 export class CustomerService {
 
-  ENDPOINT = 'customer';
+  ENDPOINT = 'customer/insider';
   INTEGRATOR_ENDPOINT = 'customer/integrator';
 
   constructor(

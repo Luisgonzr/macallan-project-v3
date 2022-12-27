@@ -4,7 +4,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { ConfigurationModule } from './pages/configuration/configuration.module';
 
 const routes: Routes = [
   {

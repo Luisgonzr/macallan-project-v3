@@ -22,14 +22,18 @@ export class AuthService {
    * @param password Password string value
    * @returns Observable to which you will need to subscribe to get the webservice response or error
    */
-  public login(email: string, password: string): Observable<any> {
+  public login(email: string, password: string, loginType: string = 'INTEGRATOR'): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         skip: 'true'
       })
     };
-    return this.http.post<any>(this.baseUrl + ApiCore.LOGIN, {
+    let loginUrl = this.baseUrl + ApiCore.LOGIN_INTEGRATOR;
+    if(loginType !== 'INTEGRATOR'){
+      loginUrl = this.baseUrl + ApiCore.LOGIN;
+    }
+    return this.http.post<any>(loginUrl, {
       email, password
     }, httpOptions).pipe(map((response: any) => {
       this.setToken(response.token);

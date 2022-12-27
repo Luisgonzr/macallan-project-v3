@@ -113,6 +113,6 @@
   </div>
 
   <br>
-  <button [disabled]="customerAddressUpdateForm.invalid"
+  <button [disabled]="customerAddressUpdateForm.invalid || disableForm"
     class="btn btn-primary">{{'sales.customer.customer_customerAddressUpdateForm.form_button' | translate}}</button>
 </form>

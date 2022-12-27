@@ -3,6 +3,7 @@ export class ApiCore {
   // Authentication
   public static AUTH = 'auth/';
   public static LOGIN = 'login/';
+  public static LOGIN_INTEGRATOR = 'login/integrator/';
   public static SIGNIN = 'signin';
   public static VERIFY = 'verify/';
   // Generic API

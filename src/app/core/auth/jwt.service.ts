@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode'; // npm i jwt-decode
+import { SessionService } from './session.service';
 
 interface DecodedJwt {
   exp: number;

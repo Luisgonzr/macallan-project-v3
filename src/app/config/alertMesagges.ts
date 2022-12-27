@@ -1,5 +1,28 @@
 export class AlertMessages {
 
+  public static readonly AUTH = {
+    'es-MX': {
+      'SUCCESS': {
+        'LOGIN': 'Bienvenido',
+        'SIGNIN': 'Usuario registrado correctamente'
+      },
+      'ERROR': {
+        'LOGIN': 'Error al iniciar sesión',
+        'SIGNIN': 'Error al registrar usuario'
+      }
+    },
+    'en-US': {
+      'SUCCESS': {
+        'LOGIN': 'Welcome',
+        'SIGNIN': 'User registered successfully'
+      },
+      'ERROR': {
+        'LOGIN': 'Error logging in',
+        'SIGNIN': 'Error registering user'
+      }
+    }
+  };
+
   public static readonly TAX_PROFILE = {
     'es-MX': {
       'SUCCESS': {

@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertMessages } from 'src/app/config/alertMesagges';
 import { CommunicationService } from '../../../../../shared/services/communication.service';
+import { I18nService } from '../../../../../shared/services/i18n.service';
+import { CustomerService } from '../../../../../models/customer/customer.service';
+import { ToastService } from '../../../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-customer-general-update-form',
@@ -12,9 +16,16 @@ export class CustomerGeneralUpdateFormComponent implements OnInit {
   customerGeneralUpdateForm!: FormGroup;
   @Input() customer!: any;
   subscription: any;
+  disableForm:boolean = false;
   //Catalogs
   // Constructor
-  constructor(private fb: FormBuilder, private communicationService: CommunicationService) { }
+  constructor(
+    private fb: FormBuilder,
+    private communicationService: CommunicationService,
+    private i18nService: I18nService,
+    private customerService: CustomerService,
+    private toastService:ToastService
+    ) { }
   ngOnInit(): void {
     this.initCustomerGeneralUpdateForm()
     if(typeof this.customer !== 'undefined'){
@@ -54,7 +65,42 @@ export class CustomerGeneralUpdateFormComponent implements OnInit {
       { type: 'pattern', message: 'This field must be a number' },
     ]
   }
-  submitCustomerGeneralUpdateForm() { console.log(this.customerGeneralUpdateForm.value); }
+  submitCustomerGeneralUpdateForm() {
+    const message = this.i18nService.getMessage(AlertMessages.CUSTOMER);
+    if(this.customerGeneralUpdateForm.valid){
+      this.disableForm = true;
+      this.customerService.updateCustomerGeneral(this.customer.id, this.customerGeneralUpdateForm.value).then(
+        (response: any) => {
+          console.log(response);
+          this.toastService.openSuccessToast(message['SUCCESS']['UPDATE'], ()=>{
+            setTimeout(() => {
+              this.customerService.getCustomer(this.customer.id).then(
+                (response: any) => {
+
+                  console.log(response);
+                  this.communicationService.emitChange({ type: 'getCustomer', customer: response });
+                  this.disableForm = false;
+                  this.toastService.openSuccessToast(message['SUCCESS']['READ_ONE'], ()=>{}, ()=>{});
+                }
+              ).catch(
+                (error: any) => {
+                  console.log(error);
+                  this.disableForm = false;
+                  this.toastService.openErrorToast(message['ERROR']['READ_ONE'], ()=>{}, ()=>{});
+                }
+              );
+            }, 1500);
+          }, ()=>{});
+        }
+      ).catch(
+        (error: any) => {
+          console.log(error);
+          this.disableForm = false;
+          this.toastService.openErrorToast(message['ERROR']['UPDATE'], ()=>{}, ()=>{});
+        }
+      );
+    }
+  }
   // Select assign value
   change(e: any) {
     const name = e.target.id;

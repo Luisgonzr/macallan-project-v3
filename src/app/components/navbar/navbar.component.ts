@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionService } from 'src/app/core/auth/session.service';
 import { I18nService } from '../../shared/services/i18n.service';
+import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private session: SessionService,
+    private authService: AuthService,
     private router: Router,
     private readonly i18Service: I18nService,
     private readonly translate: TranslateService
@@ -34,8 +36,14 @@ export class NavbarComponent implements OnInit {
 
 
   logout(){
-    this.session.removeItem('token');
-    this.router.navigate(['/']);
+    if(this.authService.getUserType() !== 'INTEGRATOR'){
+      this.session.removeItem('token');
+      this.router.navigate(['login/insider']);
+    }else{
+      this.session.removeItem('token');
+      this.router.navigate(['/']);
+    }
+
   }
 
 }

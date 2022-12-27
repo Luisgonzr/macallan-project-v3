@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from '../../../shared/services/toast.service';
 import { I18nService } from '../../../shared/services/i18n.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AlertMessages } from '../../../config/alertMesagges';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   loginFormDisable!: boolean;
+  loginType: string = 'INTEGRATOR';
 
   constructor(
     private i18Service: I18nService,
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
       next: locale => { this.useTranslate(); }
     })
     this.loadLoginForm();
+    this.checkLoginType();
   }
 
   useTranslate() {
@@ -48,9 +51,11 @@ export class LoginComponent implements OnInit {
     this.translate.use(this.i18Service.getLanguage());
   }
 
-  getToastMessage(type: number) {
-    if (type == 1) return 'Autenticación exitosa';
-    return 'Correo y/o contraseña incorrecta';
+  checkLoginType(){
+    const loginType = this.activatedRoute.snapshot.paramMap.get('loginType');
+    if(loginType === 'insider'){
+      this.loginType = 'INSIDER';
+    }
   }
 
   loadLoginForm() {
@@ -70,26 +75,29 @@ export class LoginComponent implements OnInit {
   };
 
   login() {
+    const message = this.i18Service.getMessage(AlertMessages.AUTH);
     this.loginFormDisable = true;
     let email = this.loginForm.get('email')!.value;
     let password = this.loginForm.get('password')!.value;
-    this.auth.login(email, password).subscribe({
+    this.auth.login(email, password, this.loginType).subscribe({
       next: (res) => {
         if (res.statusCode === 200) {
           console.log('Good login');
-          this.toastService.openSuccessToast(this.getToastMessage(1), () => {
+          this.toastService.openSuccessToast(message['SUCCESS']['LOGIN'], () => {
             setTimeout(() => {
               this.router.navigate(['/app']);
             }, 1500);
           }, () => { })
         } else {
           console.log('Bad login');
-          this.toastService.openSuccessToast(this.getToastMessage(0), () => { }, () => { })
+          this.toastService.openErrorToast(message['ERROR']['LOGIN'], () => { }, () => { })
+          this.loginFormDisable = false;
         }
       },
       error: (err) => {
         console.error(err);
-        this.toastService.openSuccessToast(this.getToastMessage(0), () => { }, () => { })
+        this.toastService.openErrorToast(message['ERROR']['LOGIN'], () => { }, () => { })
+        this.loginFormDisable = false;
       }
     });
   }

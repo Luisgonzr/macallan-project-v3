@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlanActionComponent } from './plan-action/plan-action.component';
 import { PlanCreateComponent } from './plan-create/plan-create.component';
 import { PlansTableViewComponent } from './plans-table-view/plans-table-view.component';
+import { InsiderGuard } from '../../../core/guards/insider.guard';
 
 const routes: Routes = [
   { path: "plans-table-view", component: PlansTableViewComponent },

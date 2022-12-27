@@ -8,7 +8,12 @@ import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "login",
+    canActivate: [NoAuthGuard],
+    component: LoginComponent
+  },
+  {
+    path: "login/:loginType",
     canActivate: [NoAuthGuard],
     component: LoginComponent
   },
@@ -21,6 +26,11 @@ const routes: Routes = [
     path: "restore-password",
     canActivate: [NoAuthGuard],
     component: RestorePasswordComponent
+  },
+  {
+    path: "",
+    redirectTo: "login",
+    pathMatch: "full"
   }
 ];
 

@@ -7,7 +7,7 @@ import { AuthService } from '../../core/auth/auth.service';
 })
 export class TaxProfileService {
 
-  ENDPOINT = 'tax-profile';
+  ENDPOINT = 'tax-profile/insider';
   INTEGRATOR_ENDPOINT = 'tax-profile/integrator';
 
   constructor(
