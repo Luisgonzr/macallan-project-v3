@@ -42,6 +42,11 @@ export class I18nService {
     }
   }
 
+  getMessage(messageJson: any) {
+    const message = messageJson[this.getLanguage()];
+    return message;
+  }
+
 
 
 }

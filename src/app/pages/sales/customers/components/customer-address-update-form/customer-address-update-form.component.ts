@@ -12,7 +12,6 @@ import { AppCatalogs } from '../../../../../config/catalogs';
 })
 export class CustomerAddressUpdateFormComponent implements OnInit {
 
-  @Input() customerId!: string;
   @Input() customer!: any;
   subscription: any;
 

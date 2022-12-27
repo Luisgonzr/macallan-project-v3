@@ -62,6 +62,6 @@
   </div>
 
 
-  <button [disabled]="taxProfileUpdateForm.invalid"
+  <button [disabled]="taxProfileUpdateForm.invalid || disableForm"
     class="btn btn-primary">{{'sales.customer.customer_taxUpdateForm.form_button' | translate}}</button>
 </form>

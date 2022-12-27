@@ -1,6 +1,6 @@
 <form>
   <div class="form-group">
-    <select class="form-control form-control-sm" (change)="selectLanguage($event)">
+    <select class="form-control form-control-sm" [(ngModel)]="language" [ngModelOptions]="{standalone: true}" (change)="selectLanguage($event)">
       <option disabled selected>{{'language-selector.choose-language'|translate }}</option>
       <option value="es-MX">{{'language-selector.language-one'|translate}}</option>
       <option value="en-US">{{'language-selector.language-two'|translate}}</option>

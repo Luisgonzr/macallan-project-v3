@@ -9,6 +9,8 @@ import { I18nService } from '../../shared/services/i18n.service';
 })
 export class LanguageSelectorComponent implements OnInit {
 
+  language = this.i8nService.getLanguage();
+
   constructor(private i8nService: I18nService) { }
 
   ngOnInit(): void {

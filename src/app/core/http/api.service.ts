@@ -80,7 +80,7 @@ export class ApiService {
    */
   public update(endpoint: string, id: string, object: any): Observable<any> {
     return this.httpClient
-      .put(`${this.url}/${endpoint}/${id}`, object)
+      .put(`${this.url}${endpoint}/${id}`, object)
       .pipe(map((data: any) => {
         this.session.setItem('token', data.token);
         return data;

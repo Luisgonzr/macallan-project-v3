@@ -2,6 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppCatalogs } from 'src/app/config/catalogs';
 import { CommunicationService } from '../../../../../shared/services/communication.service';
+import { TaxProfileService } from '../../../../../models/taxProfile/tax-profile.service';
+import { CustomerService } from '../../../../../models/customer/customer.service';
+import { ToastService } from '../../../../../shared/services/toast.service';
+import { I18nService } from '../../../../../shared/services/i18n.service';
+import { AlertMessages } from 'src/app/config/alertMesagges';
 
 @Component({
   selector: 'app-tax-profile-update-form',
@@ -10,9 +15,9 @@ import { CommunicationService } from '../../../../../shared/services/communicati
 })
 export class TaxProfileUpdateFormComponent implements OnInit {
 
-  @Input() customerId!: string;
   @Input() customer!: any;
   subscription: any;
+  disableForm:boolean = false;
 
   taxProfileUpdateForm!: FormGroup;
   //Catalogs
@@ -20,7 +25,11 @@ export class TaxProfileUpdateFormComponent implements OnInit {
   // Constructor
   constructor(
     private fb: FormBuilder,
-    private communicationService: CommunicationService
+    private communicationService: CommunicationService,
+    private taxProfileService: TaxProfileService,
+    private customerService: CustomerService,
+    private toastService: ToastService,
+    private i18nService: I18nService
     ) { }
   ngOnInit(): void {
     this.initTaxProfileUpdateForm()
@@ -64,7 +73,43 @@ export class TaxProfileUpdateFormComponent implements OnInit {
       { type: 'pattern', message: 'This field must be a number' },
     ]
   }
-  submitTaxProfileUpdateForm() { console.log(this.taxProfileUpdateForm.value); }
+  submitTaxProfileUpdateForm() {
+    const message = this.i18nService.getMessage(AlertMessages.TAX_PROFILE);
+    const messageCustomer = this.i18nService.getMessage(AlertMessages.CUSTOMER);
+    if (this.taxProfileUpdateForm.valid) {
+      this.disableForm = true;
+      this.taxProfileService.updateTaxProfile(this.customer.id, this.taxProfileUpdateForm.value).then(
+        (response: any) => {
+          console.log(response);
+          this.toastService.openSuccessToast(message['SUCCESS']['UPDATE'], ()=>{
+            setTimeout(() => {
+              this.customerService.getCustomer(this.customer.id).then(
+                (response: any) => {
+
+                  console.log(response);
+                  this.communicationService.emitChange({ type: 'getCustomer', customer: response });
+                  this.disableForm = false;
+                  this.toastService.openSuccessToast(messageCustomer['SUCCESS']['READ_ONE'], ()=>{}, ()=>{});
+                }
+              ).catch(
+                (error: any) => {
+                  console.log(error);
+                  this.disableForm = false;
+                  this.toastService.openErrorToast(messageCustomer['ERROR']['READ_ONE'], ()=>{}, ()=>{});
+                }
+              );
+            }, 1500);
+          }, ()=>{});
+        }
+      ).catch(
+        (error: any) => {
+          console.log(error);
+          this.disableForm = false;
+          this.toastService.openErrorToast(message['ERROR']['UPDATE'], ()=>{}, ()=>{});
+        }
+      );
+    }
+   }
   // Select assign value
   change(e: any) {
     const name = e.target.id;

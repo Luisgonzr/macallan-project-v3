@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private toastService: ToastService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.translate.use(this.i18Service.getLanguage());
@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
     this.translate.use(this.i18Service.getLanguage());
   }
 
-  getToastMessage(type: number){
-    if(type==1) return 'Autenticación exitosa';
+  getToastMessage(type: number) {
+    if (type == 1) return 'Autenticación exitosa';
     return 'Correo y/o contraseña incorrecta';
   }
 
@@ -71,21 +71,25 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginFormDisable = true;
-    let email = this.loginForm.get('email').value;
-    let password = this.loginForm.get('password').value;
+    let email = this.loginForm.get('email')!.value;
+    let password = this.loginForm.get('password')!.value;
     this.auth.login(email, password).subscribe({
       next: (res) => {
         if (res.statusCode === 200) {
           console.log('Good login');
-          this.toastService.openSuccessToast(this.getToastMessage(1),()=>{},()=>{})
+          this.toastService.openSuccessToast(this.getToastMessage(1), () => {
+            setTimeout(() => {
+              this.router.navigate(['/app']);
+            }, 1500);
+          }, () => { })
         } else {
           console.log('Bad login');
-          this.toastService.openSuccessToast(this.getToastMessage(0),()=>{},()=>{})
+          this.toastService.openSuccessToast(this.getToastMessage(0), () => { }, () => { })
         }
       },
       error: (err) => {
         console.error(err);
-        this.toastService.openSuccessToast(this.getToastMessage(0),()=>{},()=>{})
+        this.toastService.openSuccessToast(this.getToastMessage(0), () => { }, () => { })
       }
     });
   }

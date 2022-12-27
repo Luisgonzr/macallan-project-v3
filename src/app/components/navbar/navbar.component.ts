@@ -16,11 +16,20 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private session: SessionService,
-    private router: Router
+    private router: Router,
+    private readonly i18Service: I18nService,
+    private readonly translate: TranslateService
   ) { }
 
   ngOnInit(): void {
+    this.useTranslate();
+    this.i18Service.localeEvent.subscribe({
+      next: locale => { this.useTranslate(); }
+    })
+  }
 
+  useTranslate() {
+    this.translate.use(this.i18Service.getLanguage());
   }
 
 
