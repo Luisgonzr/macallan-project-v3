@@ -15,18 +15,19 @@
   [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [rowsPerPageOptions]="[5,10]">
   <ng-template pTemplate="header">
     <tr>
-      <th>id
+      <th pSortableColumn="id">id<p-sortIcon field="id"></p-sortIcon>
       </th>
-      <th>name
+<th pSortableColumn="name">name<p-sortIcon field="name"></p-sortIcon>
       </th>
-      <th>email
+<th pSortableColumn="email">email<p-sortIcon field="email"></p-sortIcon>
       </th>
-      <th>userName
+<th pSortableColumn="userName">userName<p-sortIcon field="userName"></p-sortIcon>
       </th>
-      <th>taxId
+<th pSortableColumn="taxId">taxId<p-sortIcon field="taxId"></p-sortIcon>
       </th>
-      <th>taxLegalName
+<th pSortableColumn="taxLegalName">taxLegalName<p-sortIcon field="taxLegalName"></p-sortIcon>
       </th>
+
       <th></th>
     </tr>
   </ng-template>
