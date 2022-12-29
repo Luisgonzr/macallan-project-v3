@@ -22,6 +22,7 @@ import { CustomerActionInvoicesComponent } from './components/customer-action-in
 import { CustomerAddressUpdateFormComponent } from './components/customer-address-update-form/customer-address-update-form.component';
 import { CustomerGeneralUpdateFormComponent } from './components/customer-general-update-form/customer-general-update-form.component';
 import { TaxProfileUpdateFormComponent } from './components/tax-profile-update-form/tax-profile-update-form.component';
+import { SharedModule } from 'src/app/shared/module/shared.module';
 
 export function CustomerHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,10 +42,11 @@ export function CustomerHttpLoaderFactory(http: HttpClient) {
     CustomerActionInvoicesComponent,
     CustomerAddressUpdateFormComponent,
     CustomerGeneralUpdateFormComponent,
-    TaxProfileUpdateFormComponent,
+    TaxProfileUpdateFormComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     CustomersRoutingModule,
     ReactiveFormsModule,
     SidebarModule,

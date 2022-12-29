@@ -19,6 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import {TableModule} from 'primeng/table';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,7 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     FooterComponent,
     NavbarComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TableModule,
     TranslateModule.forRoot({
       defaultLanguage: 'es-MX',
       loader: {
@@ -52,7 +54,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       isolate: true
     })
-
   ],
   providers: [
     {

@@ -95,4 +95,17 @@ export class CustomerService {
     })
   }
 
+  searchCustomersIntegrator(params?: any) {
+    return new Promise((resolve, reject) => {
+      this.apiService.list('customer/integrator-searcher', params).subscribe(
+        {
+          next: (response) => {
+            resolve(response.data);
+          }, error: (error) => {
+            reject(error);
+          }
+        });
+    })
+  }
+
 }

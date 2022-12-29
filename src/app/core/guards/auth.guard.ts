@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const token = this.session.getItem('token');
+      console.log(this.jwt.isExpired(token));
       if (this.session.getItem('token')) {
         if(token === null){
           this.session.removeItem('token');

@@ -12,4 +12,8 @@ export class CustomerActionInvoicesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getOutput(event:any){
+    console.log('Parent',event);
+  }
+
 }

@@ -1,0 +1,50 @@
+<div>
+  <div class="row">
+    <div class="col-lg-4">
+      <form (keydown.enter)="$event.preventDefault()">
+        <div class="form-group">
+          <input type="text" class="form-control" #input placeholder="Search value">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<p-table [value]="data" [lazy]="true" (onLazyLoad)="lazyLoadTable($event)" styleClass="" [paginator]="true"
+  selectionMode="single"
+  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+  [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [rowsPerPageOptions]="[5,10]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>id
+      </th>
+      <th>name
+      </th>
+      <th>email
+      </th>
+      <th>userName
+      </th>
+      <th>taxId
+      </th>
+      <th>taxLegalName
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dataSingle>
+    <tr [pSelectableRow]="dataSingle">
+      <td>{{dataSingle.id}}</td>
+      <td>{{dataSingle.name}}</td>
+      <td>{{dataSingle.email}}</td>
+      <td>{{dataSingle.userName}}</td>
+      <td>{{dataSingle.taxId}}</td>
+      <td>{{dataSingle.taxLegalName}}</td>
+      <td>
+        <button class="green" type="button" (click)="editRecord(dataSingle)">
+          <i data-feather="feather"></i>
+          a
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
