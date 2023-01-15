@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import {TableModule} from 'primeng/table';
+import { PrintInvoiceComponent } from './components/print-invoice/print-invoice.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     NavbarComponent,
     SidenavComponent,
+    PrintInvoiceComponent,
   ],
   imports: [
     BrowserModule,
