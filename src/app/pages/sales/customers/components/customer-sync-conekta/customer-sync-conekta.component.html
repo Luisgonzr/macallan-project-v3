@@ -1,0 +1,54 @@
+<div class="container">
+
+  <table class="table">
+
+    <thead>
+      <th scope="col">
+        Forma de pago
+      </th>
+      <th scope="col">
+        CLABE / Referencia
+      </th>
+    </thead>
+    <tbody>
+      <tr scope="row">
+        <td>
+          <img class="img-fluid"
+            src="https://res.cloudinary.com/dohoduric/image/upload/v1673838681/Genprosp/GenproV2/oxxo_pay_Grande_uqcfhl.png"
+            alt="OXXO PAY" width="50%">
+        </td>
+        <td>
+          <span *ngIf="!oxxoPaySyncButton">
+            {{oxxoPay}}
+          </span>
+          <span *ngIf="oxxoPaySyncButton">
+            <button class="btn btn-primary" [disabled]="disableOxxoPaySyncButton" (click)="syncOxxoPay()">Obtener referencia</button>
+          </span>
+        </td>
+      </tr>
+      <tr scope="row">
+        <td>
+          <img class="img-fluid"
+            src="https://res.cloudinary.com/dohoduric/image/upload/v1673838652/Genprosp/GenproV2/spei_vy6a04.png"
+            alt="SPEI" width="50%">
+        </td>
+        <td>
+          <span *ngIf="!speiSyncButton">
+            {{spei}}
+          </span>
+          <span *ngIf="speiSyncButton">
+            <button class="btn btn-primary" [disabled]="disableSpeiSyncButton" (click)="syncSpei()">Obtener CLABE</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+
+
+  </table>
+
+  <p>
+    <b>Nota:</b> Los pagos de OXXO Pay tienen límite de $2,000 pesos y los pagos SPEI tienen límite de $50,000 pesos.
+  </p>
+
+
+</div>

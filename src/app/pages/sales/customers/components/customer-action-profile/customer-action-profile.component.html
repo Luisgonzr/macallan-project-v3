@@ -27,5 +27,12 @@
         <app-customer-address-update-form [customer]="customer"></app-customer-address-update-form>
       </div>
     </div>
+    <div class="card mb-4" [hidden]="!showCard">
+      <div class="card-header">Formas de pago
+      </div>
+      <div class="card-body">
+        <app-customer-sync-conekta [customer]="customer"></app-customer-sync-conekta>
+      </div>
+    </div>
   </div>
 </div>

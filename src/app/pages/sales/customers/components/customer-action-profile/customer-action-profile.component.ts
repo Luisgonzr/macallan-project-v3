@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '../../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-customer-action-profile',
@@ -8,11 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CustomerActionProfileComponent implements OnInit {
 
   @Input() customer!: any;
+  showCard: boolean = false;
 
-  constructor() { }
+  constructor(
+    private readonly authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-
+    this.authService.getUserType() === 'INTEGRATOR' ? this.showCard = false : this.showCard = true;
   }
 
 }

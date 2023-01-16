@@ -108,4 +108,30 @@ export class CustomerService {
     })
   }
 
+  syncOxxoPay(customerId: string) {
+    return new Promise((resolve, reject) => {
+      this.apiService.create(this.getEndpoint() + `/add-payment-method/oxxo`, { customerId }).subscribe(
+        {
+          next: (response) => {
+            resolve(response);
+          }, error: (error) => {
+            reject(error);
+          }
+        });
+    });
+  }
+
+  syncSpei(customerId: string) {
+    return new Promise((resolve, reject) => {
+      this.apiService.create(this.getEndpoint() + `/add-payment-method/spei`, { customerId }).subscribe(
+        {
+          next: (response) => {
+            resolve(response);
+          }, error: (error) => {
+            reject(error);
+          }
+        });
+    });
+  }
+
 }

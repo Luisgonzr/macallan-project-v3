@@ -21,6 +21,8 @@
     "@angular/router": "~13.2.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "jwt-decode": "^3.1.2",
     "ng-animate": "^1.0.0",
     "primeicons": "^5.0.0",
